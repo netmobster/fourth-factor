@@ -1,6 +1,6 @@
 # Fourth Factor — Spec Development Plan
 *Working document. README points here. This changes as the spec develops.*
-*Last updated: 2026-05-22*
+*Last updated: 2026-05-22 — Three-layer architecture locked. Two math layers identified.*
 
 ---
 
@@ -12,91 +12,107 @@ Sessions happen when they happen. No forced cadence. Turtle mode is fine — eac
 
 ---
 
-## Milestone 1 — Challenge Class Definitions
-**Status: NOT STARTED**
-**Session type: Jay + ECHO**
-**No cryptographer needed yet.**
+## Architecture Overview (locked May 22 2026)
 
-What we're doing: deriving challenge classes from ECHO contract primitives. The itch/beast framework, the protection protocol, the behavioral friction baked into operator-AI interaction — these are already proven challenge patterns. We're formalizing them.
+Three layers. Two math layers. See `architecture.md` for full detail.
 
-What done looks like:
-- A taxonomy of challenge types (minimum 3 classes)
-- Formal valid/invalid rules for each class
-- At least one worked example per class
-- Explicit statement of what the fuzzy extractor receives as input from each class
+**Layer 3 — AI Interface:** Any AI + user interaction. Implementation-specific. Produces signal extraction moments.
+**Layer 2 — Fourth Factor Spec:** Defines valid signal. Constructs cognitive confidence number. THIS IS THE SPEC. Two math sessions (M1 + M2).
+**Layer 1 — Validator:** Crypto backend. Fuzzy extractor. Yes/no. One math session (M4).
 
-ECHO's job in this session: load this file, load the README, load the published article, and run the challenge class derivation. Jay reacts, approves, catches what's wrong.
+Layer 1 math is tractable once Layer 2 is defined. Layer 2 is the real hard problem.
 
 ---
 
-## Milestone 2 — Behavioral Commitment Scheme
-**Status: NOT STARTED**
+## Milestone 1 — Signal Extraction Moment Definitions
+**Status: IN PROGRESS — ~60% complete**
 **Session type: Jay + ECHO**
-**Sketch only — cryptographer validates the numbers later.**
+**No cryptographer needed yet.**
 
-What we're doing: defining how the fuzzy extractor turns behavioral traversal into a stable cryptographic commitment. Not the tolerance bounds (that's M4) — the architecture. What goes in, what comes out, what "same enough" means conceptually.
+What we're doing: defining the signal extraction moment types that Layer 3 reports to Layer 2. These are the observable interaction patterns that produce behavioral signal. NOT prompted challenges — observed moments in natural conversation.
+
+**What's done:**
+- Type 01 (Itch/Beast) — variables defined, valid/invalid rules sketched
+- Type 02 (Error Injection) — variables defined, Jay's signature partially confirmed
+- Type 03 (Characteristic Unexpectedness) — concept defined, variables sketched
+- Layer 3 interface format sketched
+
+**What's remaining:**
+- Formal valid/invalid rules for Types 02 and 03
+- Worked example for each type
+- Confirm variable stability for Types 02 and 03 (same question as Q1 for Type 01)
+- Layer 2 downward interface finalized
+- Write `signal-extraction-moments.md` to repo
 
 What done looks like:
-- Input format defined: what the fuzzy extractor actually receives from a challenge response
-- Output format defined: what the behavioral commitment looks like
-- "Same enough" vs "too different" defined conceptually (numbers come in M4)
-- The enrollment vs authentication flow sketched
+- Three signal extraction moment types fully defined
+- All variables named and confirmed stable per operator
+- Valid/invalid rules formal per type
+- One worked example per type
+- Layer 2 interface format locked
+
+---
+
+## Milestone 2 — The Cognitive Confidence Number (Layer 2 Math)
+**Status: NOT STARTED**
+**Session type: Jay + ECHO**
+**This is the Layer 2 math session — the real fuzzy layer.**
+
+What we're doing: defining how the fuzzy extractor combines signal extraction moment variables into the cognitive confidence number. The FBI "confidence number" equivalent for cognitive traversal.
+
+Key constraint: pure randomness must score LOW. Characteristic operator friction must score HIGH. Chaos injection must be explicitly rejected.
+
+What done looks like:
+- The cognitive confidence function f() defined
+- How `characteristic_unexpectedness` wraps the other variables
+- How `baseline_deviation_δ` is calculated
+- How the function distinguishes operator-specific friction from synthetic chaos
+- Layer 2 upward interface to Layer 1 finalized
 
 ---
 
 ## Milestone 3 — Adversarial Model
 **Status: PARTIALLY STARTED**
 **Session type: Jay + ECHO**
-**Source material: GPT red team feedback (May 22 2026)**
+**Source material: GPT red team + synthetic friction attack analysis**
 
-What we're doing: formally defining what the attacker has, what they can do, and what breaks the system. The GPT red team already identified the key threat: adversarial behavioral simulation using frontier models + rich profile data. That's the starting point.
+What we're doing: formally defining what the attacker has, what they can do, what breaks the system.
+
+Already captured:
+- Synthetic friction attack (randomPause() equivalent)
+- Chaos injection problem
+- Frontier model behavioral simulation threat
+- Challenge novelty as actual security boundary
 
 What done looks like:
-- Attacker capability model: what they have access to
+- Attacker capability model complete
 - Attack vectors ranked by feasibility
-- System breaking conditions: under what circumstances does the fourth factor fail
-- The challenge novelty requirement formalized: why static challenges are insufficient
-- Explicit acknowledgment of the adversarial simulation problem and how challenge novelty addresses it
-
-Key insight already captured: "You can't steal how someone moves" is emotionally true but cryptographically dangerous. The security property is not behavioral unforgeability — it's traversal dynamics under uncertainty with sufficient challenge novelty.
+- System breaking conditions defined
+- Challenge novelty requirement formalized
 
 ---
 
-## Milestone 4 — Tolerance Bounds + Entropy Calculations
+## Milestone 4 — Layer 1 Math (Crypto)
 **Status: NOT STARTED**
 **Session type: Jay + ECHO + cryptographer**
 **THIS IS THE HARD MATH SESSION.**
 
-What we're doing: putting actual numbers on the fuzzy extractor. Tolerance bounds, commitment scheme parameters, entropy calculations. This is the section that makes the spec credible to cryptographers or kills it.
+What we're doing: tolerance bounds, commitment scheme, entropy calculations. Operates on cognitive_confidence output from Layer 2.
+
+Note: Layer 1 math is tractable once Layer 2 is defined. The crypto operations are well-understood. The hard part is knowing what to run them on.
 
 What's needed before this session:
 - M1, M2, M3 complete
-- A cryptographer in the room (async review counts)
-- @toxsec is first candidate — already tagged on the published article
-
-What done looks like:
-- Tolerance bounds defined and justified
-- Entropy calculations for behavioral input
-- Commitment scheme parameters
-- Explicit statement of security assumptions
-- Section that says what breaks the math and under what conditions
-
-Note: this section may have placeholders until cryptographer review. That's acceptable. The spec publishes with explicit "[REQUIRES CRYPTOGRAPHIC REVIEW]" markers rather than wrong numbers.
+- Cryptographer in the room (async counts)
+- @toxsec first candidate
 
 ---
 
 ## Milestone 5 — Reference Implementation Sketch
 **Status: NOT STARTED**
 **Session type: Jay + ECHO**
-**Not code. Architecture description.**
 
-What we're doing: describing how a compliant implementation would work. Enough that someone else could build toward the standard. SA's Known layer is the reference implementation — we describe how it satisfies the spec without exposing proprietary internals.
-
-What done looks like:
-- Enrollment flow: how a new operator establishes their behavioral commitment
-- Authentication flow: how the challenge-response works end-to-end
-- SA Known layer cited as reference without exposing proprietary detail
-- What a non-SA implementation would need to provide
+Describing how a compliant AI system implements Layer 3. ECHO/Imprint as the reference. What any other AI would need to provide.
 
 ---
 
@@ -104,21 +120,16 @@ What done looks like:
 **Status: NOT STARTED**
 **Gate: M4 cryptographer review complete.**
 
-What we're doing: publishing the spec under this repo. Open standard. The Known layer stays proprietary. The spec is free.
-
-Decisions to make before this session:
-- known-ai GitHub org vs netmobster/fourth-factor (current)
-- License (CC BY-NC-SA 4.0 or something more permissive for a standard)
-- Companion Substack piece: "The Standard" — what a KNOWN-AI open spec actually defines
+Open standard. Spec free. Known layer proprietary.
 
 ---
 
 ## Session Log
 
-**May 22 2026 — Session 1**
-Conceived the Fourth Factor. Published thesis article. Created this repo. Wrote README with traversal framing. Created this plan. Confirmed: encryption at rest and auth are two separate problems. Fourth Factor is auth.
+**May 22 2026 — Session 1 (full day)**
+Conceived the Fourth Factor. Published thesis article. Created repo. Wrote README, plan, thoughts. Defined three-layer architecture. Identified two distinct math layers. Defined three signal extraction moment types with variables. Confirmed auth is ambient/continuous not discrete. Confirmed any AI can implement Layer 3. Confirmed time is not a valid variable in async text (replaced with sequence). Confirmed chaos injection must score LOW. Confirmed enrollment never ends.
 
-Key insight from GPT red team: friction is proof-of-traversal, not failure. Behavioral entropy as cryptographic substrate, not behavioral identity as password. Traversal dynamics under uncertainty.
+Status entering Session 2: M1 ~60% complete. M3 ~30% complete (adversarial model partially captured in thoughts.md).
 
 ---
 

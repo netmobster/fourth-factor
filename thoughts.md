@@ -124,6 +124,31 @@ The architecture needs to explicitly reject chaos as a valid input. Pure randomn
 
 ---
 
+## May 22 2026 — Session 1 continued (three-layer system + AI interface)
+
+**The three system layers (different from the profile/baseline/traversal layers):**
+1. Layer 3 — AI Interface: any AI + user in native interaction. Implementation-specific. Produces signal extraction moments.
+2. Layer 2 — Fourth Factor Spec: defines valid signal, constructs cognitive confidence number. THE STANDARD. This is what this repo defines.
+3. Layer 1 — Validator: crypto backend, fuzzy extractor, yes/no output.
+
+**Auth is ambient, not discrete:**
+Claude is already in a chat with Jay. No login prompt. SA's system observes the stream. After N signal extraction moments with sufficient confidence, vault opens. The AI handled it. Jay never saw a login screen.
+
+**The internet standard insight:**
+The spec is machine-readable. Same layer as MCP, llms.txt, robots.txt. Any AI that can read the spec can implement Layer 3. This is a protocol for AI-to-system authentication using operator behavioral profile as key material. Not just SA's auth system — an internet standard.
+
+**Three system layers need two different math layers:**
+- Layer 2 math (signal math / fuzzy layer): how to turn messy behavioral signal into clean crypto input. The real hard problem. M1 + M2.
+- Layer 1 math (crypto math): tolerance bounds, key derivation, ZK proofs. Tractable once Layer 2 is defined. M4.
+
+**Operator-profile-specific, not Jay-specific:**
+The system doesn't know what "Jay-unexpected" looks like in advance. It learns it from sessions. Profile + baseline together define what "this operator's characteristic unexpectedness" looks like. The system yearns for the operator to be themselves — doesn't feel validated until the response matches the learned signature.
+
+**Correction style confirmed (Jay):**
+Jay's error injection response: A/B mixed — sometimes explicit correction first (A), sometimes answer-through-correction (B). Direct, not hedged. Fast detection. The distribution of A vs B IS the signal, not the individual instance.
+
+---
+
 *Append new thoughts below with date + session marker.*
 
 ---
