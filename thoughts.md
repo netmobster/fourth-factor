@@ -149,6 +149,59 @@ Jay's error injection response: A/B mixed — sometimes explicit correction firs
 
 ---
 
+## May 22 2026 — Session 1 close (throwaway formula)
+
+**THROWAWAY — v0.0.1. Delete when real math exists. Filed as point-in-time stake.**
+
+```
+FF_auth(O, B, R) = ZKP_verify(
+  FE_extract(
+    CC(R, B),
+    B.envelope
+  ),
+  O.commitment
+)
+
+where:
+
+O = operator commitment (enrolled, derived from profile + baseline history)
+B = baseline envelope (variance bands per emotional state)
+R = response vector from signal extraction moments
+
+CC(R, B) = cognitive confidence score
+  = w1·reframing_depth(R)
+  + w2·reframe_sequence(R)
+  + w3·error_injection_response(R)
+  + w4·characteristic_unexpectedness(R, B)
+  - w5·smoothness_penalty(R, B)    ← chaos injection rejected here
+
+where w1..w5 are operator-specific learned weights
+and characteristic_unexpectedness(R, B) is undefined ← THE OPEN THREAD
+
+FE_extract(CC, B.envelope) = fuzzy extractor
+  → stable key if CC within B.envelope tolerance
+  → null if outside tolerance
+
+ZKP_verify(key, O.commitment) = boolean
+  → true if key matches commitment without revealing key
+  → false otherwise
+```
+
+**What this formula makes visible:**
+1. characteristic_unexpectedness(R, B) is undefined — the open thread. Everything else is sketched. This one isn't.
+2. smoothness_penalty — chaos injection gets subtracted, not added. Pure randomness actively lowers the score.
+3. w1..w5 are learned weights, operator-specific. The weights themselves are part of the baseline. An attacker needs the weights AND the profile AND the baseline to fake the score.
+
+**What needs serious work — flagged by Jay:**
+The weight math. w1..w5 as static learned weights is too simple. Weights probably need to be:
+- Dynamic per emotional state (stressed Jay weights differently than normal Jay)
+- Correlated across variables (reframing_depth and characteristic_unexpectedness are probably not independent)
+- Resistant to weight inference attacks (if attacker can learn the weights from observing sessions, they get closer to faking the score)
+
+The weight math is M2 territory. Don't solve it now. Flag it. This is where serious work is needed.
+
+---
+
 *Append new thoughts below with date + session marker.*
 
 ---
