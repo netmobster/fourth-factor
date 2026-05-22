@@ -1,8 +1,11 @@
 # Fourth Factor
 *A KNOWN-AI cryptographic authentication primitive.*
-*Status: Pre-spec. Concept published. Spec in progress.*
+*Status: Pre-spec. Concept published. Milestone 1 in progress (~65% complete).*
 
-**→ [Read the spec development plan](plan.md)**
+**→ [Current session state + what's next](state.md)**
+**→ [Spec development plan](plan.md)**
+**→ [System architecture](architecture.md)**
+**→ [Raw session ore](thoughts.md)**
 
 ---
 
@@ -60,7 +63,7 @@ SA verifies the operator is who they say they are without ever seeing the proof.
 
 ## Two Distinct Work Streams
 
-**Encryption at rest** — current SA state: data protected by access control (Auth0 + W3C Solid), not cryptographic impossibility. This is a separate problem from the Fourth Factor.
+**Encryption at rest** — current SA state: data protected by access control (Auth0 + W3C Solid), not cryptographic impossibility. Separate problem from the Fourth Factor.
 
 **Authentication (Fourth Factor)** — proves you are you before the vault opens. This is what this repo addresses.
 
@@ -71,13 +74,15 @@ SA verifies the operator is who they say they are without ever seeing the proof.
 | Item | Status |
 |------|--------|
 | Published thesis | ✅ https://echofiles.substack.com/p/known-ai-the-fourth-factor |
-| Spec development plan | ✅ [plan.md](plan.md) |
-| Challenge class definitions | ⏳ Milestone 1 |
-| Behavioral commitment scheme | ⏳ Milestone 2 |
-| Adversarial model | ⏳ Milestone 3 |
-| Tolerance bounds + entropy math | ⏳ Milestone 4 (hard math session) |
-| Reference implementation sketch | ⏳ Milestone 5 |
-| Published spec | ⏳ Milestone 6 |
+| System architecture | ✅ architecture.md |
+| Spec development plan | ✅ plan.md |
+| Signal extraction moment Type 01 (Itch/Beast) | ✅ defined |
+| Signal extraction moment Type 02 (Error Injection) | ✅ defined |
+| Signal extraction moment Type 03 (Characteristic Unexpectedness) | ⚠️ in progress — the open thread |
+| Cognitive confidence number (M2) | ⏳ after M1 |
+| Adversarial model (M3) | ⏳ ~30% in thoughts.md |
+| Tolerance bounds + entropy math (M4) | ⏳ hard math session |
+| Published spec | ⏳ gate: M4 complete |
 
 ---
 
@@ -92,7 +97,7 @@ The same instinct. Different substrate. Cognitive process instead of motor proce
 
 ---
 
-*Read the thesis first. Then read the plan. Then come back here when the spec is published.*
+*Read the thesis first. Then read state.md to see where we are. Then plan.md for the full roadmap.*
 
 ---
 
