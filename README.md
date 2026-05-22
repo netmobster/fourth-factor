@@ -2,6 +2,8 @@
 *A KNOWN-AI cryptographic authentication primitive.*
 *Status: Pre-spec. Concept published. Spec in progress.*
 
+**→ [Read the spec development plan](plan.md)**
+
 ---
 
 ## What This Is
@@ -39,25 +41,7 @@ The Elena example makes this concrete: when authenticating a friend whose phone 
 
 That traversal *is* the authentication event. Not the content. The process.
 
-This is why the challenge generator is the hard problem. The auth isn't:
-- static response
-- deterministic answer
-- factual recall
-- biometric snapshot
-
-It's: **constrained behavioral traversal through a dynamic challenge space.**
-
-The terrifying implication: if the traversal becomes too smooth, too optimized, too deterministic — you *lose* signal. Mimicry gets easier. Replay gets easier. The messiness is actually entropy generation. The friction creates arbitration, interpretation, prioritization, dynamic calibration. Remove it and the system collapses into deterministic compliance.
-
 **The precise framing:** this is not *behavioral identity as password.* It is *behavioral entropy as cryptographic substrate.* Traversal dynamics under uncertainty. That distinction is what makes this rigorous rather than mystical.
-
----
-
-## Relationship to ECHO
-
-This is not coincidental. The ECHO contract architecture runs on the same principle. The unresolved tensions baked into ECHO — conflict vs support, speed vs excavation, autonomy vs challenge — force behavioral traversal inside the model. That's why the system feels alive. The friction creates signal. Without it, the system collapses into a headless clone.
-
-The Fourth Factor, ECHO's contract, and the Known-AI operator architecture are all manifestations of the same belief: **meaningful cognition — and meaningful authentication — emerges through constrained traversal across persistent tension spaces.**
 
 ---
 
@@ -74,47 +58,11 @@ SA verifies the operator is who they say they are without ever seeing the proof.
 
 ---
 
-## The Challenge Generator Problem
-
-This is the hard unsolved problem. The spec will address it. It is not solved yet.
-
-**A valid challenge must:**
-- Probe behavioral pattern, not factual knowledge
-- Be novel enough that pre-computation is infeasible
-- Be answerable by the real operator without undue friction
-- Produce a response with sufficient signal for the fuzzy extractor
-- Produce consistent signal from the same operator over time
-
-**An invalid challenge:**
-- Has a factual answer (date, name, event) — data, not pattern
-- Is answerable directly from profile content — exposes the challenge space
-- Has a binary answer — no traversal, no signal
-- Changes answer based on mood rather than wiring — noise, not pattern
-- Could be simulated by a sufficiently good behavioral model — adversarial model problem
-
-**The source material for valid challenge classes:** the ECHO contract primitives. The itch/beast framework. The protection protocol. The behavioral friction baked into operator-AI interaction. These are challenge patterns already proven in the wild. The spec derives challenge classes from these primitives.
-
-**What still needs the hard math:** tolerance bounds, commitment scheme, entropy calculations. These numbers must be right or the system is either forgeable or it locks real operators out.
-
----
-
-## Relationship to KNOWN-AI
-
-The fourth factor is one of several properties that a persistent, session-compounding operator profile unlocks. It is not the whole KNOWN-AI architecture — it is one spec inside a larger category.
-
-The Known layer (built by SelfActual — selfactual.ai) is the prerequisite infrastructure. Without a real operator profile accumulated over real sessions, the fourth factor has nothing to key from. **The spec is open. The Known layer is proprietary.**
-
-This is the same move W3C made with Solid. The standard is open. The infrastructure that makes it useful is built by those who understand it best.
-
----
-
 ## Two Distinct Work Streams
 
-**Encryption at rest** — current SA state: data protected by access control (Auth0 + W3C Solid), not cryptographic impossibility. Readable by SA if needed. This is a separate problem from the Fourth Factor.
+**Encryption at rest** — current SA state: data protected by access control (Auth0 + W3C Solid), not cryptographic impossibility. This is a separate problem from the Fourth Factor.
 
 **Authentication (Fourth Factor)** — proves you are you before the vault opens. This is what this repo addresses.
-
-Both matter. They are not the same problem.
 
 ---
 
@@ -123,12 +71,13 @@ Both matter. They are not the same problem.
 | Item | Status |
 |------|--------|
 | Published thesis | ✅ https://echofiles.substack.com/p/known-ai-the-fourth-factor |
-| Challenge generator — valid/invalid rules | 🔲 Spec session |
-| Fuzzy extractor input definition | 🔲 Spec session |
-| Tolerance bounds + entropy math | 🔲 Hard math session |
-| Full technical spec | 🔲 In progress |
-| Open/closed decision | 🔲 Follows spec |
-| known-ai GitHub org | 🔲 Pending |
+| Spec development plan | ✅ [plan.md](plan.md) |
+| Challenge class definitions | ⏳ Milestone 1 |
+| Behavioral commitment scheme | ⏳ Milestone 2 |
+| Adversarial model | ⏳ Milestone 3 |
+| Tolerance bounds + entropy math | ⏳ Milestone 4 (hard math session) |
+| Reference implementation sketch | ⏳ Milestone 5 |
+| Published spec | ⏳ Milestone 6 |
 
 ---
 
@@ -143,7 +92,7 @@ The same instinct. Different substrate. Cognitive process instead of motor proce
 
 ---
 
-*The spec is in progress. Read the thesis first. Then come back here.*
+*Read the thesis first. Then read the plan. Then come back here when the spec is published.*
 
 ---
 
